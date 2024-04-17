@@ -79,7 +79,7 @@ export const constantRoutes = [
         path: 'dashboard2',
         component: () => import('@/views/dashboard2/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -96,18 +96,18 @@ export const constantRoutes = [
   //     }
   //   ]
   // },
-  // {
-  //   path: '/documentation',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/documentation/index'),
-  //       name: 'Documentation',
-  //       meta: { title: 'Documentation', icon: 'documentation', affix: true }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/documentation',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/documentation/index'),
+        name: 'Documentation',
+        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+      }
+    ]
+  },
   {
     path: '/guide',
     component: Layout,

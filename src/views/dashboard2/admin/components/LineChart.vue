@@ -1,14 +1,19 @@
 <template>
-  <div :class="className" :style="{height:height,width:width}" />
+  <div>
+    <mallki class-name="mallki-text" text="肌肉質量測量結果" />
+    <br>
+    <div :class="className" :style="{ height: height, width: width }" />
+  </div>
 </template>
 
 <script>
 import echarts from 'echarts'
-
-require('echarts/theme/macarons') // echarts theme
+import 'echarts/theme/macarons' // echarts theme
 import resize from './mixins/resize'
+import Mallki from '@/components/TextHoverEffect/Mallki.vue'
 
 export default {
+  components: { Mallki },
   mixins: [resize],
   props: {
     className: {
@@ -59,13 +64,13 @@ export default {
   },
   methods: {
     initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
+      this.chart = echarts.init(this.$el.querySelector('.chart'), 'macarons')
       this.setOptions(this.chartData)
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
         xAxis: {
-          data: ['', '2 months ago', '1 months ago', 'Now', 'Future', ''],
+          data: ['Frequency', 'Stiffness', 'Peak T', 'Average Peak T'],
           boundaryGap: false,
           axisTick: {
             show: false
@@ -91,27 +96,28 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['before', 'after']
         },
         series: [
-          // {
-          //   name: 'expected', itemStyle: {
-          //     normal: {
-          //       color: '#FF005A',
-          //       lineStyle: {
-          //         color: '#FF005A',
-          //         width: 2
-          //       }
-          //     }
-          //   },
-          //   smooth: true,
-          //   type: 'line',
-          //   data: expectedData,
-          //   animationDuration: 2800,
-          //   animationEasing: 'cubicInOut'
-          // },
           {
-            name: 'actual',
+            name: 'before',
+            itemStyle: {
+              normal: {
+                color: '#FF005A',
+                lineStyle: {
+                  color: '#FF005A',
+                  width: 2
+                }
+              }
+            },
+            smooth: true,
+            type: 'line',
+            data: expectedData,
+            animationDuration: 2800,
+            animationEasing: 'cubicInOut'
+          },
+          {
+            name: 'after',
             smooth: true,
             type: 'line',
             itemStyle: {

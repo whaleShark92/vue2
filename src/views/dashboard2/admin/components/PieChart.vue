@@ -1,8 +1,49 @@
 <template>
   <div>
     <mallki class-name="mallki-text" text="控制台" />
-    <br>
-    <div ref="chart" :class="className" :style="{height:height,width:width}" />
+    <br><br> <!-- 這裡插入兩個 <br> 標籤來增加行與行之間的距離 -->
+    <!--    <div ref="chart" :class="className" :style="{height:height,width:width}"/>-->
+    <!--    <el-col :span="6">-->
+    <!--      <el-card class="box-card">-->
+    <!--        <div slot="header" class="clearfix">-->
+    <!--          <span>水波纹 waves v-directive</span>-->
+    <!--        </div>-->
+    <!--        <div class="component-item">-->
+    <el-button v-waves type="primary">
+      Test
+    </el-button>
+    <el-button v-waves type="primary">
+      Start
+    </el-button>
+    <el-button v-waves type="primary">
+      Finish
+    </el-button>
+    <br> <!-- 插入 <br> 標籤增加行與行之間的距離 -->
+    <div />
+    <br> <!-- 插入 <br> 標籤增加行與行之間的距離 -->
+    <!-- eslint-disable-next-line no-unused-vars -->
+    <!--    <div>Now is: {{ picked }}</div>-->
+    <!--    <br> &lt;!&ndash; 插入 <br> 標籤增加行與行之間的距離 &ndash;&gt;-->
+    <!--        </div>-->
+    <!--      </el-card>-->
+    <!--    </el-col>-->
+    <!--    <div style="margin-bottom:50px;">-->
+    <!--      <el-col :span="4" class="text-center">-->
+    <!--        <router-link class="pan-btn blue-btn" to="/documentation/index">-->
+    <!--          Test-->
+    <!--        </router-link>-->
+    <!--      </el-col>-->
+    <!--      <el-col :span="4" class="text-center">-->
+    <!--        <router-link class="pan-btn light-blue-btn" to="/icon/index">-->
+    <!--          Start-->
+    <!--        </router-link>-->
+    <!--      </el-col>-->
+    <!--      <el-col :span="4" class="text-center">-->
+    <!--        <router-link class="pan-btn pink-btn" to="/excel/export-excel">-->
+    <!--          Finish-->
+    <!--        </router-link>-->
+    <!--      </el-col>-->
+    <!--    </div>-->
   </div>
 </template>
 
