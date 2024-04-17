@@ -8,9 +8,10 @@
     <!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
     <!--      <mix-chart :chart-data="MixChartData"/>-->
     <!--    </el-row>-->
-
-    <complex-table />
-    <MixChart />
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <complex-table />
+    </el-row>
+    <!--    <MixChart />-->
     <el-row :gutter="32">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
@@ -28,6 +29,20 @@
         </div>
       </el-col>
     </el-row>
+    <div>
+      <ul>
+        <li v-for="file in files" :key="file.id">
+          <a v-if="file.upFile" :href="file.upFile">Play Audio</a>
+          <p>{{ file.label }}</p>
+          <p>Severity A: {{ file.severity_A }}</p>
+          <p>Severity B: {{ file.severity_B }}</p>
+          <p>Severity C: {{ file.severity_C }}</p>
+          <p>Severity D: {{ file.severity_D }}</p>
+          <p>Handled: {{ file.handled }}</p>
+          <p>Need Handle: {{ file.need_handle }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -36,6 +51,7 @@ import LineChart from './components/LineChart'
 import PieChart from './components/PieChart'
 import TransactionTable from './components/TransactionTable'
 import BoxCard from './components/BoxCard'
+import ComplexTable from '@/views/table/complex-table'
 // import MixChart from './components/Charts/MixChart'
 // import ComplexTable from './components/complex_table.vue'
 
@@ -83,19 +99,31 @@ export default {
     LineChart,
     PieChart,
     TransactionTable,
-    BoxCard
+    BoxCard,
+    ComplexTable
     // MixChart
   },
-  data() {
+  data: function() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartData.newVisitis,
       // MixChartData: MixChartData.newVisitis
+      files: []
     }
+  },
+  created() {
+    this.fetchData()
   },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type]
       // this.MixChartData = MixChartData[type]
+    },
+    fetchData() {
+      fetch('http://163.18.44.158:9000/data_view/?format=json')
+        .then(response => response.json())
+        .then(data => {
+          this.files = data.results
+        })
     }
   }
 }
