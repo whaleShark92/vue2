@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">肌肉質量測量評估智能系統</h3>
       </div>
 
       <el-form-item prop="username">
@@ -46,40 +46,41 @@
       </el-tooltip>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <p style="color: white">>>此為開發者模式，一般使用者請聯絡管理員</p>
+      <p style="color: white">>>目前伺服器：Dev server</p>
+      <!--      <div style="position:relative">-->
+      <!--        <div class="tips">-->
+      <!--          <span>Username : admin</span>-->
+      <!--          <span>Password : any</span>-->
+      <!--        </div>-->
+      <!--        <div class="tips">-->
+      <!--          <span style="margin-right:18px;">Username : editor</span>-->
+      <!--          <span>Password : any</span>-->
+      <!--        </div>-->
 
-      <div style="position:relative">
-        <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
-        </div>
-        <div class="tips">
-          <span style="margin-right:18px;">Username : editor</span>
-          <span>Password : any</span>
-        </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          Or connect with
-        </el-button>
-      </div>
+      <!--        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">-->
+      <!--          Or connect with-->
+      <!--        </el-button>-->
+      <!--      </div>-->
     </el-form>
 
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
-      Can not be simulated on local, so please combine you own business simulation! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
+    <!--    <el-dialog title="Or connect with" :visible.sync="showDialog">-->
+    <!--      Can not be simulated on local, so please combine you own business simulation! ! !-->
+    <!--      <br>-->
+    <!--      <br>-->
+    <!--      <br>-->
+    <!--      <social-sign />-->
+    <!--    </el-dialog>-->
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-import SocialSign from './components/SocialSignin'
+// import SocialSign from './components/SocialSignin'
 
 export default {
   name: 'Login',
-  components: { SocialSign },
+  // components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
