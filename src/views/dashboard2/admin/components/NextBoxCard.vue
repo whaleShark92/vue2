@@ -27,6 +27,15 @@
       <el-button type="success" @click="handleModifyStatus()">
         Connect
       </el-button>
+      <el-button type="success" @click="handleModifyStatus()">
+        Connect
+      </el-button>
+      <el-button type="success" @click="handleModifyStatus()">
+        Connect
+      </el-button>
+      <el-button type="success" @click="handleModifyStatus()">
+        Connect
+      </el-button>
     </el-table-column>
     <br>
     <!--    </div>-->

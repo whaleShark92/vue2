@@ -1,9 +1,9 @@
 <template>
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
-
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <line-chart :chart-data="lineChartData" />
+      <!--      <line-chart :chart-data="lineChartData" />-->
+      <bar-chart />
     </el-row>
     <!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
     <!--      <mix-chart :chart-data="MixChartData"/>-->
@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import LineChart from './components/LineChart'
+// import LineChart from './components/LineChart'
+import BarChart from './components/BarChart'
 import PieChart from './components/PieChart'
 import TransactionTable from './components/TransactionTable'
 import BoxCard from './components/BoxCard'
@@ -96,7 +97,8 @@ const lineChartData = {
 export default {
   name: 'DashboardAdmin',
   components: {
-    LineChart,
+    // LineChart,
+    BarChart,
     PieChart,
     TransactionTable,
     BoxCard,

@@ -1,9 +1,22 @@
 <template>
   <div class="navbar">
-    <!--    <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />-->
-
+    <!--        <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />-->
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-
+    <el-col :span="4" class="text-center">
+      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+        Person
+      </router-link>
+    </el-col>
+    <el-col :span="4" class="text-center">
+      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+        Dashboard
+      </router-link>
+    </el-col>
+    <el-col :span="4" class="text-center">
+      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+        Analysis
+      </router-link>
+    </el-col>
     <div class="right-menu">
       <template v-if="device!=='mobile'">
         <search id="header-search" class="right-menu-item" />
@@ -36,10 +49,12 @@
           <!--          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">-->
           <!--            <el-dropdown-item>Docs</el-dropdown-item>-->
           <!--          </a>-->
-          <el-dropdown-item divided @click.native="logout">
+          <el-dropdown-item>
             <a style="display:block;">Log Out</a>
           </el-dropdown-item>
-          <el-dropdown-item divided @click.native="logout" />
+          <el-dropdown-item divided @click.native="logout">
+            <a style="display:block;">Setting</a>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -111,6 +126,12 @@ export default {
   .errLog-container {
     display: inline-block;
     vertical-align: top;
+  }
+
+  .rileft-menu {
+    float: left
+    //height: 100%;
+    //line-height: 50px;
   }
 
   .right-menu {
