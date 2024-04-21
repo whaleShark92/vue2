@@ -25,16 +25,10 @@
       <mallki class-name="mallki-text" text=" Collector gen3_v5" />
       <br>
       <el-button type="success" @click="handleModifyStatus()">
-        Connect
+        Console
       </el-button>
       <el-button type="success" @click="handleModifyStatus()">
-        Connect
-      </el-button>
-      <el-button type="success" @click="handleModifyStatus()">
-        Connect
-      </el-button>
-      <el-button type="success" @click="handleModifyStatus()">
-        Connect
+        Back
       </el-button>
     </el-table-column>
     <br>

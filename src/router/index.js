@@ -11,7 +11,6 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
-
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -80,6 +79,27 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard2/index'),
         name: 'Dashboard',
         meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/NextBoxCard', // 设置路由路径
+        component: () => import('@/views/dashboard2/admin/components/NextBoxCard'),
+        name: 'NextBoxCard',
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true },
+        hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
+      },
+      {
+        path: '/ComplexTablePerson', // 设置路由路径
+        component: () => import('@/views/dashboard2/admin/components/ComplexTablePerson'),
+        name: 'ComplexTablePerson',
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true },
+        hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
+      },
+      {
+        path: '/ComplexTableAnalysis', // 设置路由路径
+        component: () => import('@/views/dashboard2/admin/components/ComplexTableAnalysis'),
+        name: 'ComplexTableAnalysis',
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true },
+        hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
       }
     ]
   },

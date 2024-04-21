@@ -3,17 +3,17 @@
     <!--        <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />-->
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <el-col :span="4" class="text-center">
-      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+      <router-link class="pan-btn light-blue-btn" to="ComplexTablePerson">
         Person
       </router-link>
     </el-col>
     <el-col :span="4" class="text-center">
-      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+      <router-link class="pan-btn light-blue-btn" to="/">
         Dashboard
       </router-link>
     </el-col>
     <el-col :span="4" class="text-center">
-      <router-link class="pan-btn light-blue-btn" to="/icon/index">
+      <router-link class="pan-btn light-blue-btn" to="ComplexTableAnalysis">
         Analysis
       </router-link>
     </el-col>

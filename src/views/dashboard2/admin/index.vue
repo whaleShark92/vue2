@@ -1,21 +1,22 @@
 <template>
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <!--      <line-chart :chart-data="lineChartData" />-->
-      <bar-chart />
-    </el-row>
+    <!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
+    <!--      &lt;!&ndash;      <line-chart :chart-data="lineChartData" />&ndash;&gt;-->
+    <!--      <bar-chart/>-->
+    <!--    </el-row>-->
     <!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
     <!--      <mix-chart :chart-data="MixChartData"/>-->
     <!--    </el-row>-->
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <complex-table />
-    </el-row>
+    <!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
+    <!--      <complex-table/>-->
+    <!--    </el-row>-->
     <!--    <MixChart />-->
     <el-row :gutter="32">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
-          <box-card />
+          <BoxCard />
+          <!--          <BoxCard />-->
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="8">
@@ -48,13 +49,13 @@
 
 <script>
 // import LineChart from './components/LineChart'
-import BarChart from './components/BarChart'
+// import BarChart from './components/BarChart'
 import PieChart from './components/PieChart'
 import TransactionTable from './components/TransactionTable'
 import BoxCard from './components/BoxCard'
-import ComplexTable from '@/views/table/complex-table'
+// import NextBoxCard from './components/NextBoxCard'
+// import ComplexTable from '@/views/table/complex-table'
 // import MixChart from './components/Charts/MixChart'
-// import ComplexTable from './components/complex_table.vue'
 
 const lineChartData = {
   newVisitis: {
@@ -98,14 +99,15 @@ export default {
   name: 'DashboardAdmin',
   components: {
     // LineChart,
-    BarChart,
+    // BarChart,
     PieChart,
     TransactionTable,
-    BoxCard,
-    ComplexTable
+    BoxCard
+    // NextBoxCard,
+    // ComplexTable
     // MixChart
   },
-  data: function() {
+  data() {
     return {
       lineChartData: lineChartData.newVisitis,
       // MixChartData: MixChartData.newVisitis
@@ -120,6 +122,10 @@ export default {
       this.lineChartData = lineChartData[type]
       // this.MixChartData = MixChartData[type]
     },
+    // handleConnect() {
+    //   // 切换 currentComponent 到 NextBoxCard 组件
+    //   this.currentComponent = 'NextBoxCard'
+    // },
     fetchData() {
       fetch('http://163.18.44.158:9000/data_view/?format=json')
         .then(response => response.json())

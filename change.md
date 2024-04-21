@@ -1,6 +1,11 @@
-# 上列 修改標題
+# 上列 頁面標題
 #### src/router/index.js
 ![img.png](img.png)
+# 頁面連接 
+#### xxx.vue
+![img_3.png](img_3.png)
+#### src/router/index.js
+![img_1.png](img_1.png)
 
 # 上列修改
 #### src/layout/components/Navbar.vue

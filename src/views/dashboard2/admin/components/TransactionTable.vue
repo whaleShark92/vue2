@@ -1,6 +1,7 @@
 <template>
   <div>
     <mallki class-name="mallki-text" text="病患資料" />
+    <bar-chart />
     <el-table :data="tableData" style="width: 100%;padding-top: 15px;">
       <el-table-column prop="no" width="180" />
       <el-table-column prop="date" width="180" />
@@ -13,9 +14,10 @@
 <script>
 import { transactionList } from '@/api/remote-search'
 import Mallki from '@/components/TextHoverEffect/Mallki.vue'
+import BarChart from '@/views/dashboard2/admin/components/BarChart.vue'
 
 export default {
-  components: { Mallki },
+  components: { BarChart, Mallki },
   filters: {
     statusFilter(status) {
       const statusMap = {
