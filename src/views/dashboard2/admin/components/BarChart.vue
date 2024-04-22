@@ -1,13 +1,12 @@
 <template>
-  <div :class="className" :style="{height:height,width:width}" />
+  <div ref="chartRef" :class="className" :style="{height:height,width:width}" />
 </template>
 
 <script>
 import echarts from 'echarts'
+
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
-
-const animationDuration = 6000
 
 export default {
   mixins: [resize],
@@ -23,11 +22,21 @@ export default {
     height: {
       type: String,
       default: '300px'
+    },
+    data: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       chart: null
+    }
+  },
+  watch: {
+    data: {
+      handler: 'updateChart',
+      immediate: true
     }
   },
   mounted() {
@@ -44,13 +53,21 @@ export default {
   },
   methods: {
     initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
-
+      this.chart = echarts.init(this.$refs.chartRef, 'macarons')
+      this.updateChart()
+    },
+    updateChart() {
+      if (!this.chart || !this.data || this.data.length === 0) {
+        return
+      }
+      const selectedLabels = ['severity_A', 'severity_B', 'severity_C', 'severity_D']
+      const xAxisData = selectedLabels
+      const seriesData = this.data.map(item => selectedLabels.map(label => item[label]))
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
-          axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          axisPointer: {
+            type: 'shadow'
           }
         },
         grid: {
@@ -62,7 +79,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['Frequency', 'Stiffness', 'Peak T', 'Average Peak T'],
+          data: xAxisData,
           axisTick: {
             alignWithLabel: true
           }
@@ -73,31 +90,12 @@ export default {
             show: false
           }
         }],
-        // series: [{
-        //   name: 'Net Profit',
-        //   data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-        // }, {
-        //   name: 'Revenue',
-        //   data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-        // }, {
-        //   name: 'Free Cash Flow',
-        //   data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-        // }]
-        series: [{
-          name: 'before',
+        series: seriesData.map((data, index) => ({
+          name: `Series ${index + 1}`,
           type: 'bar',
-          // stack: 'vistors',
-          // barWidth: '60%',
-          data: [17.52, 354.19, 90.71, 82.39],
-          animationDuration
-        }, {
-          name: 'after',
-          type: 'bar',
-          // stack: 'vistors',
-          // barWidth: '60%',
-          data: [17.89, 366.92, 92.54, 82.39],
-          animationDuration
-        }]
+          data,
+          animationDuration: 6000
+        }))
       })
     }
   }
