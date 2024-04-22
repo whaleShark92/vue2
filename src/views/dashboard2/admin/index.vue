@@ -21,7 +21,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
-          <pie-chart />
+          <RandomPerson />
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="8">
@@ -30,27 +30,40 @@
         </div>
       </el-col>
     </el-row>
-    <div>
-      <ul>
-        <li v-for="file in files" :key="file.id">
-          <a v-if="file.upFile" :href="file.upFile">Play Audio</a>
-          <p>{{ file.label }}</p>
-          <p>Severity A: {{ file.severity_A }}</p>
-          <p>Severity B: {{ file.severity_B }}</p>
-          <p>Severity C: {{ file.severity_C }}</p>
-          <p>Severity D: {{ file.severity_D }}</p>
-          <p>Handled: {{ file.handled }}</p>
-          <p>Need Handle: {{ file.need_handle }}</p>
-        </li>
-      </ul>
-    </div>
+    <!--    <div>-->
+    <!--      <ul>-->
+    <!--        <li v-for="file in files" :key="file.id">-->
+    <!--          <a v-if="file.upFile" :href="file.upFile">Play Audio</a>-->
+    <!--          <p>{{ file.label }}</p>-->
+    <!--          <p>Severity A: {{ file.severity_A }}</p>-->
+    <!--          <p>Severity B: {{ file.severity_B }}</p>-->
+    <!--          <p>Severity C: {{ file.severity_C }}</p>-->
+    <!--          <p>Severity D: {{ file.severity_D }}</p>-->
+    <!--          <p>Handled: {{ file.handled }}</p>-->
+    <!--          <p>Need Handle: {{ file.need_handle }}</p>-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </div>-->
+    <!--    <div>-->
+    <!--      <el-table :data="files" border>-->
+    <!--        <el-table-column prop="upFile" label="upFile" />-->
+    <!--        <el-table-column prop="severity_A" label="severity_A" />-->
+    <!--        <el-table-column prop="severity_B" label="severity_B" />-->
+    <!--        <el-table-column prop="severity_C" label="severity_C" />-->
+    <!--        <el-table-column prop="severity_D" label="severity_D" />-->
+    <!--        <el-table-column prop="label" label="label" />-->
+    <!--        <el-table-column prop="handled" label="handled" />-->
+    <!--        <el-table-column prop="need_handle" label="need_handle" />-->
+    <!--      </el-table>-->
+    <!--    </div>-->
   </div>
 </template>
 
 <script>
 // import LineChart from './components/LineChart'
 // import BarChart from './components/BarChart'
-import PieChart from './components/PieChart'
+// import PieChart from './components/PieChart'
+import RandomPerson from './components/RandomPerson.vue'
 import TransactionTable from './components/TransactionTable'
 import BoxCard from './components/BoxCard'
 // import NextBoxCard from './components/NextBoxCard'
@@ -100,7 +113,8 @@ export default {
   components: {
     // LineChart,
     // BarChart,
-    PieChart,
+    // PieChart,
+    RandomPerson,
     TransactionTable,
     BoxCard
     // NextBoxCard,

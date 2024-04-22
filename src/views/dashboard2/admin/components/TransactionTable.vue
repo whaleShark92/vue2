@@ -2,17 +2,29 @@
   <div>
     <mallki class-name="mallki-text" text="病患資料" />
     <bar-chart />
-    <el-table :data="tableData" style="width: 100%;padding-top: 15px;">
-      <el-table-column prop="no" width="180" />
-      <el-table-column prop="date" width="180" />
-      <!--      <el-table-column prop="no" label="No." width="180" />-->
-      <!--      <el-table-column prop="date" label="Date" width="180" />-->
-    </el-table>
+    <!--    <el-table :data="tableData" style="width: 100%;padding-top: 15px;">-->
+    <!--      <el-table-column prop="no" width="180" />-->
+    <!--      <el-table-column prop="date" width="180" />-->
+    <!--      &lt;!&ndash;      <el-table-column prop="no" label="No." width="180" />&ndash;&gt;-->
+    <!--      &lt;!&ndash;      <el-table-column prop="date" label="Date" width="180" />&ndash;&gt;-->
+    <div>
+      <el-table :data="files" border>
+        <!--          <el-table-column prop="label" label="label"/>-->
+        <!--        <el-table-column prop="upFile" label="upFile"/>-->
+        <el-table-column prop="severity_A" label="severity_A" />
+        <el-table-column prop="severity_B" label="severity_B" />
+        <el-table-column prop="severity_C" label="severity_C" />
+        <el-table-column prop="severity_D" label="severity_D" />
+        <!--          <el-table-column prop="handled" label="handled" :formatter="formatBoolean" />-->
+        <!--          <el-table-column prop=" need_handle" label="need_handle" :formatter="formatBoolean" />-->
+      </el-table>
+    </div>
+    <!--    </el-table>-->
   </div>
 </template>
 
 <script>
-import { transactionList } from '@/api/remote-search'
+// import { transactionList } from '@/api/remote-search'
 import Mallki from '@/components/TextHoverEffect/Mallki.vue'
 import BarChart from '@/views/dashboard2/admin/components/BarChart.vue'
 
@@ -66,9 +78,11 @@ export default {
   },
   methods: {
     fetchData() {
-      transactionList().then(response => {
-        this.list = response.data.items.slice(0, 8)
-      })
+      fetch('http://163.18.44.158:9000/data_view/?format=json')
+        .then(response => response.json())
+        .then(data => {
+          this.files = data.results
+        })
     }
   }
 }

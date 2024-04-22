@@ -88,6 +88,20 @@ export const constantRoutes = [
         hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
       },
       {
+        path: '/AnalysisTable', // 设置路由路径
+        component: () => import('@/views/dashboard2/admin/components/AnalysisTable'),
+        name: 'AnalysisTable',
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true },
+        hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
+      },
+      {
+        path: '/PersonTable', // 设置路由路径
+        component: () => import('@/views/dashboard2/admin/components/PersonTable'),
+        name: 'PersonTable',
+        meta: { title: '肌肉質量測量評估智能系統', icon: 'dashboard', affix: true },
+        hidden: true // 如果想在侧边栏显示该路由，请将 hidden 设置为 false 或删除该属性
+      },
+      {
         path: '/ComplexTablePerson', // 设置路由路径
         component: () => import('@/views/dashboard2/admin/components/ComplexTablePerson'),
         name: 'ComplexTablePerson',

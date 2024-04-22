@@ -9,31 +9,20 @@
     <div class="image-container">
       <img src="./device.png" alt="Image Description">
     </div>
-    <!--    <div style="position:relative;">-->
-    <!--      <pan-thumb :image="avatar" class="panThumb" />-->
-    <!--      <div style="padding-top:35px;" class="progress-item">-->
-    <!--        <span>裝置連線狀態：</span>-->
-    <!--        <el-progress :percentage="100" status="success" />-->
-    <!--        <br>-->
-    <!--      </div>-->
-    <!--      <div class="progress-item">-->
-    <!--        <span>剩餘電量：</span>-->
-    <!--        <el-progress :percentage="50" />-->
-    <!--        <br>-->
-    <!--      </div>-->
-    <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">
-      <mallki class-name="mallki-text" text=" Collector gen3_v5" />
-      <br>
-      <el-button type="success" @click="handleModifyStatus()">
-        Console
-      </el-button>
-      <el-button type="success" @click="handleModifyStatus()">
+    <!--          <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">-->
+    <mallki class-name="mallki-text" text=" Collector gen3_v5" />
+    <br>
+    <el-button type="success" @click="handleModifyStatus()">
+      Console
+    </el-button>
+    <router-link to="/">
+      <el-button type="success">
         Back
       </el-button>
-    </el-table-column>
-    <br>
-    <!--    </div>-->
+    </router-link>
+    <!--          </el-table-column>-->
   </div>
+  <!--    </div>-->
   <!--  </el-card>-->
 </template>
 
@@ -63,6 +52,8 @@ export default {
   },
   methods: {
     handleModifyStatus() {
+      // 调用 index.vue 中的 handleConnect 方法，切换组件
+      this.$router.push({ name: 'NextBoxCard' })
       this.$message({
         message: 'Attempt to connect',
         type: 'success'
