@@ -22,7 +22,7 @@
     <!--        <br>-->
     <!--      </div>-->
     <el-table-column label="Actions" align="center" width="230" class-name="small-padding fixed-width">
-      <mallki class-name="mallki-text" text=" Collector gen3_v5" />
+      <mallki class-name="mallki-text" text="Collector gen3_v5" />
       <br>
       <router-link to="/dashboard3">
         <el-button type="success" @click="handleModifyStatus()">

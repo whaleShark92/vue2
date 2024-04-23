@@ -15,7 +15,7 @@
     <el-row :gutter="32">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
-          <BoxCard />
+          <RandomEdge />
           <!--          <BoxCard />-->
         </div>
       </el-col>
@@ -65,7 +65,8 @@
 // import PieChart from './components/PieChart'
 import RandomPerson from './components/RandomPerson.vue'
 import TransactionTable from './components/TransactionTable'
-import BoxCard from './components/BoxCard'
+import RandomEdge from './components/RandomEdge'
+// import BoxCard from './components/BoxCard'
 // import NextBoxCard from './components/NextBoxCard'
 // import ComplexTable from '@/views/table/complex-table'
 // import MixChart from './components/Charts/MixChart'
@@ -116,7 +117,8 @@ export default {
     // PieChart,
     RandomPerson,
     TransactionTable,
-    BoxCard
+    RandomEdge
+    // BoxCard
     // NextBoxCard,
     // ComplexTable
     // MixChart
